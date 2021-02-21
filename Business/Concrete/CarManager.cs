@@ -10,9 +10,9 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _carDal;
+        ICarDal _carDal; // veri erişim yöntemlerinin her birini tutabilecek referans
  
-        public CarManager(ICarDal carDal)
+        public CarManager(ICarDal carDal)// oluşturma anında bir veri erişim yöntemi istiyor.
         {
             _carDal = carDal;
             
@@ -20,7 +20,6 @@ namespace Business.Concrete
        
         public void Add(Car car)
         {
-          
 
             if ( car.Description.Length >=2 ) 
             {

@@ -27,11 +27,11 @@ namespace ConsoleUI
             // colorManager.Add(new Color { ColorId = 4,ColorName = "Blue" });// ---------------Color EKLEME-----------
             // colorManager.Update(new Color { ColorId = 4, ColorName = "Gray" });// --------------Color GÜNCELLEME------
             // colorManager.Delete(new Color { ColorId = 4, ColorName = "Gray" });//---------------- Color SİLME----------
-            Console.WriteLine(colorManager.GetById(2).ColorName);//----------- istenilen id ye göre ColorName veriyor------
-            foreach (var color in colorManager.GetAll())
-            {
-                Console.WriteLine(color.ColorName);
-            }
+           // Console.WriteLine(colorManager.GetById(2).ColorName);//----------- istenilen id ye göre ColorName veriyor------
+            //foreach (var color in colorManager.GetAll().Data)
+            //{
+            //    Console.WriteLine(color.ColorName);
+            //}
         }
          
         private static void BrandTest()
@@ -39,8 +39,8 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             // brandManager.Add(new Brand { BrandId = 7,BrandName = "Superb" });//------------ Brand EKLEME-----------------
             // brandManager.Update(new Brand { BrandId = 7, BrandName = "Golf" });//---------- Brand GÜNCELLEME------------
-           // brandManager.Delete(new Brand { BrandId = 7, BrandName = "R50" });// --------------Brand SİLME--------------
-            Console.WriteLine(brandManager.GetById(2).BrandName);//------------- istenilen id ye göre BrandName veriyor-----
+            //brandManager.Delete(new Brand { BrandId = 7, BrandName = "R50" });// --------------Brand SİLME--------------
+            Console.WriteLine(brandManager.GetById(2).Data.BrandName);//------------- istenilen id ye göre BrandName veriyor----- DATA İLE VERDİK
             //foreach (var brand in brandManager.GetAll())//            ------------------- Tümünü listeler---------------------
             //{
             //    Console.WriteLine(brand.BrandName);
@@ -51,6 +51,24 @@ namespace ConsoleUI
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
+            // RESULT KISMINI TEST ETME
+            var result = carManager.GetCarDetails();
+            if (result.Success)
+            {
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName+" "+ car.BrandName);
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+
+
+
             //carManager.Add(new Car
             //{
             //    Id = 7,
@@ -66,7 +84,7 @@ namespace ConsoleUI
             // carManager.Delete(new Car {Id = 7,BrandId=7,ColorId=2,CarName="Mini Cooper",
             // ModelYear=2019,DailyPrice=95,Description="Anlatılmaz yaşanır" });    //************* Car SİLME***************
 
-            Console.WriteLine(carManager.GetById(2).CarName);// *******istenilen id ye göre CarName veriyor************
+           // Console.WriteLine(carManager.GetById(2).CarName);// *******istenilen id ye göre CarName veriyor************
 
             //Console.WriteLine("\n" + "-----Şuan Elimizde bulunan Arabalar----" + "\n");
             //foreach (var car in carManager.GetCarDetails())

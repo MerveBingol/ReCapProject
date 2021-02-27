@@ -13,12 +13,107 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //BrandTest();
             //ColorTest();
+            // UserTest();
+            //CustomerTest();
+
+            RentaLTest();
 
         }
 
+        private static void RentaLTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            Console.WriteLine(rentalManager.Add(new Rental
+            {
+                RentalId=3,
+                CarId = 1,
+                CustomerId = 2,
+                RentDate = new DateTime(2021, 02, 27)
+
+            }).Message);
+
+
+            foreach (var rental in rentalManager.GetAll().Data)
+            {
+                Console.WriteLine(
+                    "RentalId= " + rental.RentalId + "\n"+
+                    "CarId=" + rental.CarId + "\n" + 
+                    "CustomerId =" + rental.CustomerId + "\n" 
+
+
+                    );
+
+            }
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer { CustomerId = 4, UserId = 4, CompanyName = " dörtSey" });
+           // customerManager.Update(new Customer { CustomerId = 4, UserId = 4, CompanyName = " biSey" });
+           // customerManager.Delete(new Customer { CustomerId = 4, UserId = 4, CompanyName = " biSey" });
+            foreach (var customer in customerManager.GetAll().Data)
+            {
+                Console.WriteLine(
+                    "CustomerId: " + customer.CustomerId + "\n" +
+                    "UserId: "+customer.UserId + "\n" +
+                    "CompanyName: "+customer.CompanyName
+
+
+                    );
+            }
+        }
+
+        private static void UserTest()
+        {
+            UserManagaer userManager = new UserManagaer(new EfUserDal());
+            userManager.Add(new User
+            {
+                UserId = 4,
+                UserFirstName = "Salih",
+                UserLastName = "Bingöl",
+                UserEmail = "Salih@gmail.com",
+                UserPassword = "147852"
+            });
+
+
+            //userManager.Update(new User
+            //{
+            //    UserId = 4,
+            //    UserFirstName = "Salih1",
+            //    UserLastName = "Bingöl",
+            //    UserEmail = "Salih1@gmail.com",
+            //    UserPassword = "152"
+            //});
+
+            //userManager.Delete(new User
+            //{
+            //    UserId = 4,
+            //    UserFirstName = "Salih1",
+            //    UserLastName = "Bingöl",
+            //    UserEmail = "Salih1@gmail.com",
+            //    UserPassword = "152"
+            //});
+
+            // Console.WriteLine(userManager.GetById(2).Data.UserFirstName ); 
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine(
+                    "UserId : " + user.UserId + "\n" +
+                    "UserFirstName : " + user.UserFirstName + "\n" +
+                    "UserLastName : " + user.UserLastName + "\n"
+
+                    );
+            }
+
+
+
+
+
+        }
 
         private static void ColorTest()
         {

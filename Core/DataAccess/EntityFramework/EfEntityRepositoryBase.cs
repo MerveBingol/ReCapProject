@@ -49,7 +49,7 @@ namespace Core.DataAccess.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return filter == null
+                     return filter == null
                     ? context.Set<TEntity>().ToList()// null ise DbSet Car sınıfını yani Cars tablosunun hepsini liste olarak döndür.
                     : context.Set<TEntity>().Where(filter).ToList();// null değil ise verilen şarta ( filtreye )göre liste olarak döndür
 

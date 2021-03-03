@@ -40,6 +40,7 @@ namespace Business.Constants
         public static string CarNameInvalidAndDailyPriceInvalid = "Araba ismi ve Günlük ücret geçersiz";
         public static string MaintenanceTime=" Arabalar Bakımda :) ";
         public static string CarListed=" Arabalar Listelendi";
-      
+        internal static string CarImageAdded="Fotoğraf eklendi";
+        internal static string ChecImageLimitExceeded;
     }
 }

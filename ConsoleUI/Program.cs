@@ -69,7 +69,7 @@ namespace ConsoleUI
 
         private static void UserTest()
         {
-            UserManagaer userManager = new UserManagaer(new EfUserDal());
+            UserManager userManager = new UserManager(new EfUserDal());
             userManager.Add(new User
             {
                 UserId = 4,

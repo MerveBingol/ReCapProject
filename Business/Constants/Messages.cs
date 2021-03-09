@@ -1,6 +1,8 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -40,7 +42,14 @@ namespace Business.Constants
         public static string CarNameInvalidAndDailyPriceInvalid = "Araba ismi ve Günlük ücret geçersiz";
         public static string MaintenanceTime=" Arabalar Bakımda :) ";
         public static string CarListed=" Arabalar Listelendi";
-        internal static string CarImageAdded="Fotoğraf eklendi";
-        internal static string ChecImageLimitExceeded;
+        public static string CarImageAdded="Fotoğraf eklendi";
+        public static string ChecImageLimitExceeded="fotoğraf limiti dolu";
+        public static string AuthorizationDenied="Heyy Genç ! Yetkin yok";
+        public static string UserRegistered="Kayıt oldu";
+        public static string UserNotFound="Kullanıcı bulunamadı";
+        public static string PasswordError="Parola Hatalı";
+        public static string SuccessfulLogin="Başarılı giriş";
+        public static string UserAlreadyExists = "Kullanıcı Mevcut";
+        public static string AccessTokenCreated="Token oluşturuldu";
     }
 }

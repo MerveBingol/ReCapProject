@@ -1,8 +1,9 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 using System;
+using Entities.Concrete;
 
 namespace ConsoleUI
 {
@@ -72,11 +73,11 @@ namespace ConsoleUI
             UserManager userManager = new UserManager(new EfUserDal());
             userManager.Add(new User
             {
-                UserId = 4,
-                UserFirstName = "Salih",
-                UserLastName = "Bingöl",
-                UserEmail = "Salih@gmail.com",
-                UserPassword = "147852"
+                Id = 4,
+                FirstName = "Salih",
+                LastName = "Bingöl",
+                Email = "Salih@gmail.com",
+             
             });
 
 
@@ -102,9 +103,9 @@ namespace ConsoleUI
             foreach (var user in userManager.GetAll().Data)
             {
                 Console.WriteLine(
-                    "UserId : " + user.UserId + "\n" +
-                    "UserFirstName : " + user.UserFirstName + "\n" +
-                    "UserLastName : " + user.UserLastName + "\n"
+                    "UserId : " + user.Id + "\n" +
+                    "UserFirstName : " + user.FirstName + "\n" +
+                    "UserLastName : " + user.LastName + "\n"
 
                     );
             }

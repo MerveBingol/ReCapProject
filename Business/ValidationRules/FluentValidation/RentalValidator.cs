@@ -12,6 +12,7 @@ namespace Business.ValidationRules.FluentValidation
         {
             RuleFor(r => r.RentDate).GreaterThan(DateTime.Now).WithMessage("Geçmiş Güne kiralama yapılmaz");
             RuleFor(r => r.ReturnDate).GreaterThanOrEqualTo(r => r.RentDate).WithMessage("iade  tarihi kiralama tarihinden önce olmalıdır");
+           
         }
      
     }

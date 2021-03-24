@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfRentalDal : EfEntityRepositoryBase<Rental, RentACarContext>, IRentalDal
     {
-        public List<RentalDetailDto> GetRentalDetails(Expression<Func<IEntity, bool>> filter = null)
+        public List<RentalDetailDto> GetRentalDetails()
         {
             using (RentACarContext contex = new RentACarContext())
             {
@@ -27,8 +27,9 @@ namespace DataAccess.Concrete.EntityFramework
                              select new RentalDetailDto
                              {
                                  RentalId=r.RentalId,
-                                 CarId=c.CarId,
-                                 CustomerId=cus.CustomerId,
+                                 CarName=c.CarName,
+                                 FirstName=us.FirstName,
+                                 LastName=us.LastName,
                                  RentDate=r.RentDate,
                                  ReturnDate=r.ReturnDate
                              
